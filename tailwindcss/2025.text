@@ -1,0 +1,29 @@
+1. Jalankan di terminal:
+npm install -D tailwindcss@3.4.13 postcss autoprefixer
+npx tailwindcss init -p
+
+2. Edit tailwind.config.js, isi minimal seperti ini:
+
+module.exports = {
+  content: [
+    "./public/**/*.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+3. Tambahkan Tailwind ke CSS utama, src/assets/main.css:
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+4. Impor di src/main.js (vue)
+import { createApp } from 'vue'
+import App from './App.vue'
+import './assets/main.css'
+
+createApp(App).mount('#app')
